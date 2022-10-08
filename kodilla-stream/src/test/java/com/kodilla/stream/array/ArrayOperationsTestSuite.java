@@ -22,7 +22,10 @@ public class ArrayOperationsTestSuite {
 
         //when
         double average = getAverage(numbers);
+
+
         //then
         assertEquals(average,4.6);
         }
+
 }

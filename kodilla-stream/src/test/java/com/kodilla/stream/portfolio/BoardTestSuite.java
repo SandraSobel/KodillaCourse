@@ -134,7 +134,8 @@ public class BoardTestSuite {
         long averageWorkingOnTask = daysSum / taskQuantity;
 
         //then
-
+        long averageDays = (5L+35L+15L)/3;
+        assertEquals(averageDays,averageWorkingOnTask);
     }
 
 
