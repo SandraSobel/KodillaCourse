@@ -5,7 +5,8 @@ import java.util.List;
 
 public class FlightsLists {
     public ArrayList<Flight> createList(){
-        List<Flight> flightList = new ArrayList<>();
+        ArrayList<Flight> flightList = new ArrayList<>();
+        return flightList;
 
     }
 
