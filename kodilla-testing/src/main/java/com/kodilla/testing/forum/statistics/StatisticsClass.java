@@ -13,16 +13,33 @@ public class StatisticsClass {
     public StatisticsClass(Statistics statistics){
         this.statistics = statistics;
     }
-
+//if  if jak zero
+    //usun double
 
     public void calculateAdvStatistics(Statistics statistics){
-        int numberOfUsers = statistics.usersNames().size();
-        int numberOfPosts = statistics.postsCount();
-        int numberOfComments = statistics.commentsCount();
-        double averagePostsPerUser = numberOfPosts/numberOfUsers;
-        double averageCommentsPerUser = numberOfComments/numberOfUsers;
-        double averageCommentsPerPosts = numberOfComments/numberOfPosts;
+
+        numberOfUsers = statistics.usersNames().size();
+
+        numberOfPosts = statistics.postsCount();
+
+        numberOfComments = statistics.commentsCount();
+
+        if (numberOfUsers == 0) {
+            averagePostsPerUser = 0;
+        } else {
+            averagePostsPerUser = (double)numberOfPosts/(double)numberOfUsers;}
+
+        if (numberOfUsers == 0) {
+            averageCommentsPerUser = 0;
+        } else {
+            averageCommentsPerUser = (double)numberOfComments/(double)numberOfUsers;}
+
+        if (numberOfPosts == 0) {
+            averageCommentsPerPosts= 0;
+        }else {
+            averageCommentsPerPosts = (double)numberOfComments/(double)numberOfPosts;
         }
+    }
 
     public void showStatistic() {
         System.out.println("Average post per user: " + averagePostsPerUser);
