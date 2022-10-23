@@ -2,27 +2,29 @@ package com.kodilla.rps;
 
 public class RpsCountWins {
 
-    RpsStart rpsStart = new RpsStart();
-    RpsRound rpsRound = new RpsRound();
+
     int playerWins;
     int computerWins;
-    boolean isPlayerWon = false;
-    boolean isComputerWon = false;
-    boolean isDraw =false;
-    String resultString;
+    int draws;
 
-    public void rpsCountWins() {
+
+
+    public void rpsCountWins(RpsRound rpsRound) {
+
         playerWins = rpsRound.getListOfWins().size();
         computerWins = rpsRound.getRoundAdd() - playerWins;
+        draws = rpsRound.getRoundAdd() - playerWins - computerWins;
+
+        System.out.println("Ilosc wygranych gracza - " + playerWins +" \n"+
+                           "Ilosc wygranych komputera - " + computerWins +" \n"+
+                           "Ilosc remisow - " +draws + " \n");
+
         if (playerWins > computerWins) {
-            isPlayerWon = true;
-            System.out.println("Gratulacje, wygralas/wygrales.\n");
+            System.out.println("Wynik koncowy, wygrana, gratulacje!\n");
         } else if (computerWins > playerWins) {
-            isComputerWon = true;
-            System.out.println("Przykro mi, przegralas/przegrales.\n");
+            System.out.println("Wynik koncowy - przegrana.\n");
         } else if (computerWins == playerWins) {
-            isDraw = true;
-            System.out.println("Remis!\n");
+            System.out.println("Wynik koncowy - remis!\n");
         }
     }
 }

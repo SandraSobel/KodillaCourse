@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 public class RpsRound {
     String personPlay;
+    String personPlay2;
     String computerPlay;
+
     String kamien = "1";
     String papier = "2";
     String nozyce = "3";
@@ -15,11 +17,10 @@ public class RpsRound {
     List<Integer> listOfWins = new ArrayList<>();
     int roundAdd = 0;
     Scanner scan = new Scanner(System.in);
+    RpsStartNewGame rpsStartNewGame = new RpsStartNewGame();
+    RpsEndCurrentGame rpsEndCurrentGame = new RpsEndCurrentGame();
 
-
-
-    public void round() {
-
+    public void round(RpsStart rpsStart) {
     System.out.println(
             "Twoj ruch.\n" +
             "Kamien = 1, Paper = 2, Nozyce = 3.\n" +
@@ -29,17 +30,28 @@ public class RpsRound {
     computerPlay = rpsComputerMove.computerMove();
 
 
-    /*
-
-    RpsStartNewGame rpsStartNewGame = new RpsStartNewGame();
-    RpsEndCurrentGame rpsEndCurrentGame = new RpsEndCurrentGame();
     if (personPlay.equals(nowaGra)) {
-        ????
-    } else if (personPlay.equals(koniecGry)){
-        ????
-*/
+        System.out.println("Czy napewno chcesz zakonczyc aktualna gre aby rozpoczac nowa?\n" +
+                "Odpowiedz tak aby potwierdzic lub nie aby anulowac");
+        personPlay2 = scan.next();
+        if (personPlay2.equals("tak")){
+            //rozpocznij nowa gre;
+        } else if(personPlay2.equals("nie")){
+            roundAdd --;
+        }
 
-    if (personPlay.equals(computerPlay)){
+
+    } else if (personPlay.equals(koniecGry)) {
+        System.out.println("Czy napewno chcesz calkowicie zakonczyc gre?\n" +
+                "Odpowiedz tak aby potwierdzic lub nie aby anulowac");
+        personPlay2 = scan.next();
+        if (personPlay2.equals("tak")){
+            //przejdz do konca programu;
+        } else if(personPlay2.equals("nie")){
+            roundAdd --;
+        }
+
+    } else if (personPlay.equals(computerPlay)){
         System.out.println("Remis.");
     } else if (personPlay.equals(kamien)){
         if (computerPlay.equals(nozyce)){
