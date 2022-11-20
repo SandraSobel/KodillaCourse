@@ -5,7 +5,6 @@ public class Product {
     public Product (String productName){
         this.productName = productName;
     }
-
     public String getProductName() {
         return productName;
     }

@@ -8,6 +8,5 @@ public class OrderDto {
     public OrderDto(final OrderRequest orderRequest, final boolean isOrdered){
         this.orderRequest = orderRequest;
         this.isOrdered = isOrdered;
-
     }
 }
