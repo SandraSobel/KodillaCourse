@@ -10,7 +10,7 @@ public class FindFlights {
     String depart;
     String arrival;
     Scanner scan = new Scanner(System.in);
-    FlightsDatabase flightsDatabase = new FlightsDatabase();
+    FlightsList flightsDatabase = new FlightsList();
 
 
     public void findFlightsFrom() {
@@ -20,6 +20,8 @@ public class FindFlights {
         System.out.println("Wyszukane loty:");
         flightsDatabase.flightsList().stream().
                 filter(flight -> flight.getDepart().equals(depart)).forEach(System.out::println);
+
+        System.out.println("Zakonczono wyszukiwanie lotow");
     }
 
     public void findFlightsTo() {
@@ -29,6 +31,8 @@ public class FindFlights {
 
         System.out.println("Wyszukane loty:");
         flightsDatabase.flightsList().stream().filter(flight2 -> flight2.getArrival().equals(arrival)).forEach(System.out::println);
+
+        System.out.println("Zakonczono wyszukiwanie lotow");
 
     }
 
@@ -44,11 +48,9 @@ public class FindFlights {
                 filter(flight -> flight.getDepart().equals(depart)).
                 filter(flight2 -> flight2.getArrival().equals(arrival)).forEach(System.out::println);
         System.out.println("Wyszukane loty z przesiadka:");
-
-
-       /* for (int i = 1;
+        for (int i = 1;
              i < flightsDatabase.flightsList().stream().
-                filter(flight -> flight.getDepart().equals(depart)).collect(Collectors.toList()).size();
+                     filter(flight -> flight.getDepart().equals(depart)).collect(Collectors.toList()).size();
              i++) {
             int finalI = i;
             System.out.println("Lot pierwszy:");
@@ -58,20 +60,19 @@ public class FindFlights {
             flightsDatabase.flightsList().stream()
                     .filter(flight -> flight.getDepart().equals(flightsDatabase.flightsList().get(finalI).getArrival()))
                     .filter(flight -> flight.getArrival().equals(arrival))
-                    .filter(flight -> flight.getDepartTime().isAfter(flightsDatabase.flightsList().get(finalI).getArrivalTime()))
-                    .filter(flight -> flight.getDepartTime().isBefore(flightsDatabase.flightsList().get(finalI).getArrivalTime().plusDays(1)))
                     .forEach(System.out::println);
             System.out.println();
+
+        System.out.println("Zakonczono wyszukiwanie lotow");
+
+
+       /*
             */
-        for (int i = 1; i < flightsDatabase.flightsList().size(); i++) {
-
-            if (flightsDatabase.flightsList().get(i).depart.equals(depart) && !flightsDatabase.flightsList().get(i).arrival.equals(arrival)) {
-                System.out.println("Lot pierwszy:");
-                System.out.println(flightsDatabase.flightsList().get(i));
 
 
 
-                }
+
+
 
             }
 
